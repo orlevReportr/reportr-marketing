@@ -9,19 +9,19 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <section id="home">
+      <section id="home" className="scroll-mt-24 md:scroll-mt-28">
         <HeroSection />
       </section>
-      <section id="problem">
+      <section id="problem" className="scroll-mt-24 md:scroll-mt-28">
         <ProblemSection />
       </section>
-      <section id="solution">
+      <section id="solution" className="scroll-mt-24 md:scroll-mt-28">
         <SolutionSection />
       </section>
-      <section id="pricing">
+      <section id="pricing" className="scroll-mt-24 md:scroll-mt-28">
         <BusinessSection />
       </section>
-      <section id="about">
+      <section id="about" className="scroll-mt-24 md:scroll-mt-28">
         <AboutSection />
       </section>
     </main>

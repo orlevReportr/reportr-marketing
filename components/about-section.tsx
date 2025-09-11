@@ -101,13 +101,13 @@ export function AboutSection() {
                 </div>
 
                 <div className="flex justify-center space-x-3">
-                  <Button variant="ghost" size="sm" className="p-2">
+                  <Button variant="ghost" size="sm" className="p-2" aria-label={`View ${member.name} on LinkedIn`}>
                     <Linkedin className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="sm" className="p-2">
+                  <Button variant="ghost" size="sm" className="p-2" aria-label={`View ${member.name} on Twitter`}>
                     <Twitter className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="sm" className="p-2">
+                  <Button variant="ghost" size="sm" className="p-2" aria-label={`Email ${member.name}`}>
                     <Mail className="h-4 w-4" />
                   </Button>
                 </div>

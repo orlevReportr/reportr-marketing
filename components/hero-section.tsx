@@ -15,27 +15,22 @@ export function HeroSection() {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background">
+      <section className="min-h-screen relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse motion-reduce:animate-none"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000 motion-reduce:animate-none"></div>
         </div>
 
-        {/* Prominent brand near navbar */}
-        <div
-          className={`absolute left-0 right-0 top-24 md:top-28 z-20 text-center px-4 transition-all duration-1000 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-          aria-hidden="true"
-        >
-          <div className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight gradient-text font-[family-name:var(--font-playfair)] drop-shadow-sm select-none leading-[1.15] pb-1">
-            Reportr
-          </div>
-        </div>
+        
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
+            <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`} aria-hidden="true">
+              <div className="inline-block text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight gradient-text font-[family-name:var(--font-playfair)] drop-shadow-sm select-none leading-[1.15] pb-1 mb-4 md:mb-6">
+                Reportr
+              </div>
+            </div>
             <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
               <h1 className="text-5xl md:text-7xl font-bold mb-6 font-[family-name:var(--font-playfair)] text-balance">
                 Turn <span className="gradient-text">Conversations</span> into{" "}
