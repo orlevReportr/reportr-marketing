@@ -1,0 +1,82 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, Play } from "lucide-react"
+import { BookingModal } from "./booking-modal"
+
+export function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
+  return (
+    <>
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        {/* Prominent brand near navbar */}
+        <div
+          className={`absolute left-0 right-0 top-24 md:top-28 z-20 text-center px-4 transition-all duration-1000 ${
+            isVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
+          aria-hidden="true"
+        >
+          <div className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight gradient-text font-[family-name:var(--font-playfair)] drop-shadow-sm select-none leading-[1.15] pb-1">
+            Reportr
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 font-[family-name:var(--font-playfair)] text-balance">
+                Turn <span className="gradient-text">Conversations</span> into{" "}
+                <span className="gradient-text">Compliant Documents</span>
+              </h1>
+            </div>
+
+            <div className={`transition-all duration-1000 delay-300 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
+                Reportr autonomously transforms your client meetings into professional, regulation-ready reports for
+                financial advisors and regulated services.
+              </p>
+            </div>
+
+            <div className={`transition-all duration-1000 delay-500 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-lg px-8 py-4"
+                  onClick={() => setIsBookingModalOpen(true)}
+                >
+                  Book a Demo
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button variant="outline" size="lg" className="text-lg px-8 py-4 bg-transparent">
+                  <Play className="mr-2 h-5 w-5" />
+                  Watch Demo
+                </Button>
+              </div>
+            </div>
+
+            <div className={`transition-all duration-1000 delay-700 ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
+              <div className="mt-12 text-sm text-muted-foreground">
+                Trusted by financial advisors across Australia
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
+    </>
+  )
+}
