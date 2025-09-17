@@ -74,7 +74,7 @@ const sendEmail = async (formData: ContactFormData): Promise<boolean> => {
     const sgMail = (await import('@sendgrid/mail')).default
     sgMail.setApiKey(SENDGRID_API_KEY)
 
-    // Prepare customer confirmation email using SendGrid template
+    // Prepare customer confirmation email using SendGrid templates
     const customerEmail = {
       to: formData.email,
       from: {
