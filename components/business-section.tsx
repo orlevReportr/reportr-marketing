@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Check, Zap, Building, Crown } from "lucide-react"
+import { Check, Zap, User, Crown, Building2 } from "lucide-react"
 
 const pricingTiers = [
   {
@@ -21,7 +21,7 @@ const pricingTiers = [
     period: "+ usage-based pricing",
     description: "Flexible pricing for solo advisors and growing practices",
     features: ["Base plan + pay-per-document", "All compliance templates", "Priority email support", "Advanced analytics", "Cost scales with usage"],
-    icon: Building,
+    icon: User,
     popular: false,
   },
   {
@@ -53,7 +53,7 @@ const pricingTiers = [
       "SLA guarantees",
       "Volume discounts",
     ],
-    icon: Building,
+    icon: Building2,
     popular: false,
   },
 ]
@@ -86,7 +86,7 @@ export function BusinessSection() {
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[family-name:var(--font-playfair)]">
-            Planned <span className="gradient-text">Pricing Strategy</span>
+            <span className="gradient-text">Pricing Strategy</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
             Start free, scale affordably: from 1 document per day forever free, to usage-based pricing for solos, to unlimited plans for established practices.
@@ -139,7 +139,6 @@ export function BusinessSection() {
                 <div className={`w-full text-center py-3 rounded-md border ${
                     tier.popular ? "border-primary bg-primary/5 text-primary" : "border-muted bg-muted/50 text-muted-foreground"
                   }`}>
-                  <span className="font-medium">Planned Pricing Model</span>
                 </div>
               </CardContent>
             </Card>

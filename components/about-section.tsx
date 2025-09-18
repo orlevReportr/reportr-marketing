@@ -3,14 +3,13 @@
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Linkedin, Twitter, Mail } from "lucide-react"
+import { Linkedin, Twitter, Mail, User } from "lucide-react"
 
 const teamMembers = [
   {
     name: "Oren Levy",
     role: "Founder & CEO",
     bio: "Product architect and technical lead. Built Reportr MVP and drives product vision. Background in sales and engineering with deep understanding of AI-powered solutions.",
-    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
     email: "oren@reportr.ai",
@@ -19,7 +18,6 @@ const teamMembers = [
     name: "Adam Shuvalov",
     role: "Technical Co-Founder",
     bio: "Software Engineer with NSW Government and former Technical Intelligence Officer. Security and engineering specialist with background in Security. Cellebrite Certified Operator and Cellebrite Certified Physical Analyst.",
-    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
     email: "adam@reportr.ai",
@@ -28,7 +26,6 @@ const teamMembers = [
     name: "Tzvi Balbin",
     role: "Strategic Advisor - Marketing & Growth",
     bio: "Founder & Head of Digital at DataSauce. 11+ years scaling digital marketing campaigns with 100M+ ad spend across platforms. Leads sales, marketing, and partnership strategy.",
-    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
     email: "tzvi@reportr.ai",
@@ -37,7 +34,6 @@ const teamMembers = [
     name: "Moshe Goldsmith",
     role: "Strategic Advisor - Financial Services",
     bio: "Director - Principal Adviser at Safety Nest. 10+ years as Financial Advisor navigating Australia's regulatory environment. Deep expertise in ASIC compliance, file notes, SoA/RoA documentation, and audit requirements.",
-    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
     email: "moshe@reportr.ai",
@@ -90,11 +86,9 @@ export function AboutSection() {
             >
               <CardContent className="p-6 text-center">
                 <div className="mb-6">
-                  <img
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                  />
+                  <div className="w-24 h-24 rounded-full mx-auto mb-4 bg-primary/10 flex items-center justify-center">
+                    <User className="w-12 h-12 text-primary/60" />
+                  </div>
                   <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                   <p className="text-primary font-medium text-sm mb-3">{member.role}</p>
                   <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>

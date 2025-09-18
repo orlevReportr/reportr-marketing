@@ -18,12 +18,32 @@ const navItems = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+
+      // Find which section is currently in view
+      const sections = navItems.map(item => item.href.substring(1)) // Remove #
+      let currentSection = ""
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section
+            break
+          }
+        }
+      }
+
+      setActiveSection(currentSection)
     }
+
     window.addEventListener("scroll", handleScroll)
+    handleScroll() // Call once on mount
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -74,16 +94,23 @@ export function Navigation() {
 
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-muted-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer"
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navItems.map((item) => {
+                  const isActive = activeSection === item.href.substring(1)
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+                        isActive
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground hover:text-primary"
+                      }`}
+                    >
+                      {item.name}
+                    </a>
+                  )
+                })}
               </div>
             </div>
 
@@ -113,16 +140,23 @@ export function Navigation() {
           {isMobileMenuOpen && (
             <div className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-b border-border">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium cursor-pointer"
-                    onClick={(e) => handleNavClick(e, item.href)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navItems.map((item) => {
+                  const isActive = activeSection === item.href.substring(1)
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer transition-colors ${
+                        isActive
+                          ? "text-primary font-semibold"
+                          : "text-muted-foreground hover:text-primary"
+                      }`}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                    >
+                      {item.name}
+                    </a>
+                  )
+                })}
                 <div className="space-y-2 pt-4">
                   <Link href="/contact">
                     <Button variant="ghost" className="w-full">
