@@ -24,9 +24,9 @@ export function HeroSection() {
         
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`} aria-hidden="true">
-              <div className="inline-block text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight gradient-text font-[family-name:var(--font-playfair)] drop-shadow-sm select-none leading-[1.15] pb-1 mb-4 md:mb-6">
+          <div className="text-center max-w-4xl mx-auto overflow-visible">
+            <div className={`transition-all duration-1000 overflow-visible ${isVisible ? "animate-fade-in-up" : "opacity-0"}`} aria-hidden="true">
+              <div className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight gradient-text font-[family-name:var(--font-playfair)] drop-shadow-sm select-none leading-[1.2] pb-2 mb-4 md:mb-6 overflow-visible">
                 Reportr
               </div>
             </div>

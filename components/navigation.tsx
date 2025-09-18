@@ -27,14 +27,22 @@ export function Navigation() {
       // Find which section is currently in view
       const sections = navItems.map(item => item.href.substring(1)) // Remove #
       let currentSection = ""
+      let closestDistance = Infinity
 
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
           const rect = element.getBoundingClientRect()
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section
-            break
+          // Check if section is visible on screen
+          if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            // Calculate distance from top of viewport (accounting for navigation offset)
+            const distanceFromTop = Math.abs(rect.top - 100)
+
+            // If this section is closer to the navigation offset, use it
+            if (distanceFromTop < closestDistance) {
+              closestDistance = distanceFromTop
+              currentSection = section
+            }
           }
         }
       }
