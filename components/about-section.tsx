@@ -7,40 +7,40 @@ import { Linkedin, Twitter, Mail } from "lucide-react"
 
 const teamMembers = [
   {
-    name: "Sarah Chen",
-    role: "CEO & Co-Founder",
-    bio: "Former McKinsey consultant with 8+ years in financial services. Led digital transformation at Commonwealth Bank.",
-    image: "/professional-headshot-of-asian-woman-ceo.jpg",
+    name: "Oren Levy",
+    role: "Founder & CEO",
+    bio: "Product architect and technical lead. Built Reportr MVP and drives product vision. Background in sales and engineering with deep understanding of AI-powered solutions.",
+    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
-    email: "sarah@reportr.ai",
+    email: "oren@reportr.ai",
   },
   {
-    name: "Marcus Rodriguez",
-    role: "CTO & Co-Founder",
-    bio: "Ex-Google AI engineer. Built ML systems at scale for 10+ years. PhD in Computer Science from Stanford.",
-    image: "/professional-headshot-of-hispanic-man-cto.jpg",
+    name: "Adam Shuvalov",
+    role: "Technical Co-Founder",
+    bio: "Software Engineer with NSW Government and former Technical Intelligence Officer. Security and engineering specialist with background in Security. Cellebrite Certified Operator and Cellebrite Certified Physical Analyst.",
+    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
-    email: "marcus@reportr.ai",
+    email: "adam@reportr.ai",
   },
   {
-    name: "Dr. Emily Watson",
-    role: "Head of Compliance",
-    bio: "Former ASIC regulatory specialist. 15+ years ensuring financial services compliance across Australia.",
-    image: "/professional-headshot-of-woman-compliance-officer.jpg",
+    name: "Tzvi Balbin",
+    role: "Strategic Advisor - Marketing & Growth",
+    bio: "Founder & Head of Digital at DataSauce. 11+ years scaling digital marketing campaigns with 100M+ ad spend across platforms. Leads sales, marketing, and partnership strategy.",
+    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
-    email: "emily@reportr.ai",
+    email: "tzvi@reportr.ai",
   },
   {
-    name: "James Park",
-    role: "Head of Product",
-    bio: "Product leader from Atlassian. Shipped enterprise software used by millions of knowledge workers.",
-    image: "/professional-headshot-of-asian-man-product-manager.jpg",
+    name: "Moshe Goldsmith",
+    role: "Strategic Advisor - Financial Services",
+    bio: "Director - Principal Adviser at Safety Nest. 10+ years as Financial Advisor navigating Australia's regulatory environment. Deep expertise in ASIC compliance, file notes, SoA/RoA documentation, and audit requirements.",
+    image: "/placeholder.svg",
     linkedin: "#",
     twitter: "#",
-    email: "james@reportr.ai",
+    email: "moshe@reportr.ai",
   },
 ]
 
@@ -121,10 +121,10 @@ export function AboutSection() {
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Why We Built Reportr</h3>
               <p className="text-muted-foreground max-w-4xl mx-auto text-pretty leading-relaxed">
-                After witnessing countless hours wasted on manual documentation in regulated industries, we knew there
-                had to be a better way. Our team combines decades of financial services experience with world-class AI
-                expertise to solve this problem once and for all. We're not just building software—we're transforming
-                how professionals work.
+                After witnessing Australian financial advisors struggle with post-Royal Commission compliance burdens,
+                we knew AI could transform how regulated professionals handle documentation. Our team combines deep
+                Australia regulatory expertise with proven technical execution to build the compliance-first AI co-pilot solution
+                that turns conversations into compliant documentation ready for client delivery and audit.
               </p>
             </CardContent>
           </Card>

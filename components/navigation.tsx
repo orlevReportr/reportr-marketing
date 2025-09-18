@@ -3,22 +3,21 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { BookingModal } from "./booking-modal"
 
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "Problem", href: "#problem" },
   { name: "Solution", href: "#solution" },
   { name: "Pricing", href: "#pricing" },
-  { name: "About Us", href: "#about" },
+  { name: "The Team", href: "#about" },
 ]
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,18 +29,26 @@ export function Navigation() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
+
+    // Check if we're on the home page
+    if (window.location.pathname === '/') {
+      // We're on home page, scroll to element
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
+      }
+    } else {
+      // We're on a different page, navigate to home page with hash
+      window.location.href = `/${href}`
     }
     setIsMobileMenuOpen(false)
   }
 
   const handleBookDemo = () => {
-    setIsBookingModalOpen(true)
+    window.open('https://calendly.com/admin-reportr/30min', '_blank')
     setIsMobileMenuOpen(false)
   }
 
@@ -81,9 +88,11 @@ export function Navigation() {
             </div>
 
             <div className="hidden md:flex items-center space-x-3">
-              <Button variant="ghost" className="text-muted-foreground hover:text-primary">
-                Contact Us
-              </Button>
+              <Link href="/contact">
+                <Button variant="ghost" className="text-muted-foreground hover:text-primary">
+                  Contact Us
+                </Button>
+              </Link>
               <Button className="bg-primary hover:bg-primary/90" onClick={handleBookDemo}>
                 Book a Demo
               </Button>
@@ -115,9 +124,11 @@ export function Navigation() {
                   </a>
                 ))}
                 <div className="space-y-2 pt-4">
-                  <Button variant="ghost" className="w-full">
-                    Contact Us
-                  </Button>
+                  <Link href="/contact">
+                    <Button variant="ghost" className="w-full">
+                      Contact Us
+                    </Button>
+                  </Link>
                   <Button className="w-full bg-primary hover:bg-primary/90" onClick={handleBookDemo}>
                     Book a Demo
                   </Button>
@@ -127,8 +138,6 @@ export function Navigation() {
           )}
         </div>
       </nav>
-
-      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </>
   )
 }

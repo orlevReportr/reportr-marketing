@@ -10,41 +10,50 @@ const pricingTiers = [
     name: "Free",
     price: "$0",
     period: "forever",
-    description: "Perfect for trying out Reportr",
-    features: ["5 meetings per month", "Basic templates", "Standard exports", "Email support"],
+    description: "Perfect for trying Reportr with minimal commitment",
+    features: ["1 document per day", "Basic compliance templates", "Calendar integration", "Community support", "No credit card required"],
     icon: Zap,
     popular: false,
   },
   {
-    name: "Professional",
-    price: "$99",
-    period: "per user/month",
-    description: "For individual advisors and small teams",
-    features: [
-      "Unlimited meetings",
-      "All compliance templates",
-      "CRM integrations",
-      "Priority support",
-      "Custom branding",
-      "Advanced analytics",
-    ],
+    name: "Starter",
+    price: "$49",
+    period: "+ usage-based pricing",
+    description: "Flexible pricing for solo advisors and growing practices",
+    features: ["Base plan + pay-per-document", "All compliance templates", "Priority email support", "Advanced analytics", "Cost scales with usage"],
     icon: Building,
-    popular: true,
+    popular: false,
+  },
+  {
+    name: "Professional",
+    price: "$89",
+    period: "per advisor/month",
+    description: "Unlimited documents for busy advisors and established firms",
+    features: [
+      "Unlimited documents",
+      "All compliance templates",
+      "Priority support",
+      "Team management",
+      "Advanced analytics",
+      "Predictable monthly costs",
+    ],
+    icon: Crown,
+    popular: false,
   },
   {
     name: "Enterprise",
     price: "Custom",
-    period: "contact us",
-    description: "For large organizations with specific needs",
+    period: "negotiated pricing",
+    description: "Tailored solutions for large firms and dealerships",
     features: [
       "Everything in Professional",
-      "SAML SSO",
-      "Data residency options",
+      "White-label options",
       "Custom integrations",
-      "Dedicated support",
+      "Dedicated account manager",
       "SLA guarantees",
+      "Volume discounts",
     ],
-    icon: Crown,
+    icon: Building,
     popular: false,
   },
 ]
@@ -77,14 +86,14 @@ export function BusinessSection() {
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-[family-name:var(--font-playfair)]">
-            Simple, <span className="gradient-text">Transparent Pricing</span>
+            Planned <span className="gradient-text">Pricing Strategy</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Clear ROI: reclaim 4-10 hours per week. At $99/month, the cost is trivial compared to the time you'll save.
+            Start free, scale affordably: from 1 document per day forever free, to usage-based pricing for solos, to unlimited plans for established practices.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {pricingTiers.map((tier, index) => (
             <Card
               key={tier.name}
@@ -127,39 +136,16 @@ export function BusinessSection() {
                   ))}
                 </ul>
 
-                <Button
-                  className={`w-full ${
-                    tier.popular ? "bg-primary hover:bg-primary/90" : "bg-secondary hover:bg-secondary/90"
-                  }`}
-                  size="lg"
-                >
-                  {tier.name === "Enterprise" ? "Contact Sales" : "Book a Demo"}
-                </Button>
+                <div className={`w-full text-center py-3 rounded-md border ${
+                    tier.popular ? "border-primary bg-primary/5 text-primary" : "border-muted bg-muted/50 text-muted-foreground"
+                  }`}>
+                  <span className="font-medium">Planned Pricing Model</span>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className={`transition-all duration-1000 delay-500 ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
-          <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-2">4-10 hrs</div>
-                  <div className="text-sm text-muted-foreground">Time saved per week</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-2">$2,400+</div>
-                  <div className="text-sm text-muted-foreground">Monthly value at $60/hr</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-2">24x</div>
-                  <div className="text-sm text-muted-foreground">ROI on Professional plan</div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   )

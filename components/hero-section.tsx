@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play } from "lucide-react"
-import { BookingModal } from "./booking-modal"
+import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -50,15 +49,17 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-lg px-8 py-4"
-                  onClick={() => setIsBookingModalOpen(true)}
+                  onClick={() => window.open('https://calendly.com/admin-reportr/30min', '_blank')}
                 >
                   Book a Demo
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-4 bg-transparent">
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </Button>
+                <Link href="/contact">
+                  <Button variant="outline" size="lg" className="text-lg px-8 py-4 bg-transparent">
+                    Contact Us
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
             </div>
 
@@ -70,8 +71,6 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-
-      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </>
   )
 }

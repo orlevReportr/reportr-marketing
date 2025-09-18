@@ -6,32 +6,32 @@ import { TrendingDown, Clock, FileText, AlertTriangle } from "lucide-react"
 
 const problems = [
   {
-    icon: Clock,
-    title: "Time Drain",
-    description: "Knowledge workers spend hours weekly turning meetings into notes, emails, and formal documents.",
-    stat: "40%",
-    statLabel: "of work time on admin",
-  },
-  {
     icon: TrendingDown,
-    title: "Adviser Shortage",
-    description: "Australia has ~15.5k registered advisers in 2025—down from ~25k in 2019.",
-    stat: "38%",
-    statLabel: "decline in advisers",
+    title: "Shrinking Adviser Workforce",
+    description: "Regulatory change has driven adviser exits worldwide (e.g. 42% decline in Australia since 2019), leaving those who remain under intense efficiency pressure.",
+    stat: "42%",
+    statLabel: "adviser decline (AU since 2019)",
   },
   {
     icon: FileText,
-    title: "Compliance Burden",
-    description: "Admin and compliance requirements drag margins and cap capacity for client service.",
-    stat: "7 years",
-    statLabel: "document retention required",
+    title: "Heavy Documentation Burden",
+    description: "Advisers face strict record-keeping rules across markets — from 7-year retention in AU/NZ to 5-year suitability records in the UK. SoAs, RoAs, and review notes must be audit-ready.",
+    stat: "5 - 7 yrs",
+    statLabel: "mandatory record retention",
+  },
+  {
+    icon: Clock,
+    title: "Time and Cost Drain",
+    description: "Up to 60% of the cost of providing advice is swallowed by compliance paperwork, reducing client-facing time and driving adviser burnout.",
+    stat: "60%",
+    statLabel: "of advice costs are admin",
   },
   {
     icon: AlertTriangle,
-    title: "Generic Tools Fall Short",
-    description: "AI notetakers create transcripts and summaries, not client-ready, compliant outputs.",
+    title: "Generic AI Tools Fall Short",
+    description: "Consumer-grade AI tools produce transcripts but ignore regulatory standards. Advisors need jurisdiction-specific documents, not just meeting notes.",
     stat: "0%",
-    statLabel: "compliance-ready outputs",
+    statLabel: "compliance built-in",
   },
 ]
 
@@ -66,8 +66,7 @@ export function ProblemSection() {
             Documentation Is the <span className="gradient-text">Bottleneck</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            The universal pain of turning conversations into compliant, professional documents is crushing productivity
-            and limiting growth in regulated industries.
+            Regulators worldwide have tightened documentation and record-keeping expectations for financial advice. Generic AI tools rarely address these jurisdiction-specific requirements, leaving advisors without the compliance safeguards they need.
           </p>
         </div>
 
