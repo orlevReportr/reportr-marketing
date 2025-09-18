@@ -58,7 +58,7 @@ const TO_EMAIL = 'support@reportr.ai'
 
 const sendEmail = async (formData: ContactFormData): Promise<boolean> => {
   try {
-    // Import internal notification template (still using HTML for internal emails)
+    // Import internal notification template (still using HTML for internal emails) we use SendGrid
     const { getInternalNotificationEmailHTML, getInternalNotificationEmailText } = await import('@/lib/email-templates')
 
     if (!SENDGRID_API_KEY) {
