@@ -22,22 +22,6 @@ const teamMembers = [
     twitter: "#",
     email: "adam@reportr.ai",
   },
-  {
-    name: "Tzvi Balbin",
-    role: "Strategic Advisor - Marketing & Growth",
-    bio: "Founder & Head of Digital at DataSauce. 11+ years scaling digital marketing campaigns with 100M+ ad spend across platforms. Leads sales, marketing, and partnership strategy.",
-    linkedin: "#",
-    twitter: "#",
-    email: "tzvi@reportr.ai",
-  },
-  {
-    name: "Moshe Goldsmith",
-    role: "Strategic Advisor - Financial Services",
-    bio: "Director - Principal Adviser at Safety Nest. 10+ years as Financial Advisor navigating Australia's regulatory environment. Deep expertise in ASIC compliance, file notes, SoA/RoA documentation, and audit requirements.",
-    linkedin: "#",
-    twitter: "#",
-    email: "moshe@reportr.ai",
-  },
 ]
 
 export function AboutSection() {
