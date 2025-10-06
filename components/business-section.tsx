@@ -2,26 +2,16 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Check, Zap, User, Crown, Building2 } from "lucide-react"
+import { Check, Zap, Crown, Building2 } from "lucide-react"
 
 const pricingTiers = [
   {
     name: "Basic",
     price: "$0",
-    period: "Free Forever",
-    description: "Perfect for trying Reportr with minimal commitment",
-    features: ["5 Meetings per week", "Unlimited documents per week", "Unlimited templates", "Calendar integration", "Basic support", "No credit card required"],
+    period: "forever",
+    description: "Perfect for trying Reportr with no commitment",
+    features: ["5 meetings per week", "Unlimited reports", "Unlimited templates", "Calendar integration", "Basic support", "No credit card required"],
     icon: Zap,
-    popular: false,
-  },
-  {
-    name: "Starter (coming soon)",
-    price: "$49",
-    period: "+ usage-based pricing",
-    description: "Flexible pricing for solo advisors and growing practices",
-    features: ["Everything in Basic", "All compliance templates", "Priority email support", "Cost scales with usage"],
-    icon: User,
     popular: false,
   },
   {
@@ -30,14 +20,12 @@ const pricingTiers = [
     period: "per advisor/month",
     description: "Unlimited documents for busy advisors and established firms",
     features: [
-      "Unlimited documents",
-      "All compliance templates",
+      "Everything in Basic",
+      "Unlimited meetings",
       "Priority support",
-      "Team management",
-      "Predictable monthly costs",
     ],
     icon: Crown,
-    popular: false,
+    popular: true,
   },
   {
     name: "Enterprise",
@@ -88,11 +76,11 @@ export function BusinessSection() {
             <span className="gradient-text">Pricing Strategy</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Start free, scale affordably: from 1 document per day forever free, to usage-based pricing for solos, to unlimited plans for established practices.
+            Start free, scale as you grow: from 5 meetings per week forever free, to unlimited meetings for busy advisors and established practices.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {pricingTiers.map((tier, index) => (
             <Card
               key={tier.name}
@@ -134,11 +122,6 @@ export function BusinessSection() {
                     </li>
                   ))}
                 </ul>
-
-                <div className={`w-full text-center py-3 rounded-md border ${
-                    tier.popular ? "border-primary bg-primary/5 text-primary" : "border-muted bg-muted/50 text-muted-foreground"
-                  }`}>
-                </div>
               </CardContent>
             </Card>
           ))}
