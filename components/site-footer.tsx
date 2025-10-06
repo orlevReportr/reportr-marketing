@@ -8,9 +8,8 @@ export function Footer() {
           <span className="font-semibold">Reportr</span> — AI Meeting to Client-Ready Reports
         </div>
         <div className="flex flex-wrap items-center gap-4">
-          <a href="#privacy" className="hover:text-primary">Privacy</a>
+          <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
-          <Link href="/legal/acceptable-use" className="hover:text-primary">Acceptable Use</Link>
         </div>
       </div>
     </footer>

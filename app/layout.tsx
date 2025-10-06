@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: "Reportr - AI Meeting to Client-Ready Reports",
   description: "Turn conversations into compliant documents for regulated services",
   generator: "v0.app",
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '64x64' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({

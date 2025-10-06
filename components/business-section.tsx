@@ -7,20 +7,20 @@ import { Check, Zap, User, Crown, Building2 } from "lucide-react"
 
 const pricingTiers = [
   {
-    name: "Free",
+    name: "Basic",
     price: "$0",
-    period: "forever",
+    period: "Free Forever",
     description: "Perfect for trying Reportr with minimal commitment",
-    features: ["1 document per day", "Basic compliance templates", "Calendar integration", "Community support", "No credit card required"],
+    features: ["5 Meetings per week", "Unlimited documents per week", "Unlimited templates", "Calendar integration", "Basic support", "No credit card required"],
     icon: Zap,
     popular: false,
   },
   {
-    name: "Starter",
+    name: "Starter (coming soon)",
     price: "$49",
     period: "+ usage-based pricing",
     description: "Flexible pricing for solo advisors and growing practices",
-    features: ["Base plan + pay-per-document", "All compliance templates", "Priority email support", "Advanced analytics", "Cost scales with usage"],
+    features: ["Everything in Basic", "All compliance templates", "Priority email support", "Cost scales with usage"],
     icon: User,
     popular: false,
   },
@@ -34,7 +34,6 @@ const pricingTiers = [
       "All compliance templates",
       "Priority support",
       "Team management",
-      "Advanced analytics",
       "Predictable monthly costs",
     ],
     icon: Crown,
